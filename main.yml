@@ -1,0 +1,7 @@
+- name: setup
+  hosts: all
+  user: "{{ user }}"
+  roles:
+    - gcc
+  vars_files:
+    - ./inventory/vars.yml

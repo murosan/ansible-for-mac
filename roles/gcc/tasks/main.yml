@@ -1,0 +1,41 @@
+- name: install gcc
+  homebrew:
+    name: gcc
+    state: latest
+
+- name: set gcc default
+  file:
+    src: /usr/local/bin/gcc-8
+    path: /usr/local/bin/gcc
+    state: link
+
+- name: set g++ default
+  file:
+    src: /usr/local/bin/g++-8
+    path: /usr/local/bin/g++
+    state: link
+
+- shell: "which gcc"
+  register: which_gcc
+
+- shell: "which g++"
+  register: which_gpp
+
+- debug:
+    msg: "which gcc: {{ which_gcc.stdout }}"
+  when: not ansible_check_mode
+- debug:
+    msg: "which g++: {{ which_gpp.stdout }}"
+  when: not ansible_check_mode
+
+- fail:
+    msg: "[fail] {{ which_gcc.stdout }} was not equal to /usr/local/bin/gcc"
+  when:
+    - not ansible_check_mode
+    - which_gcc.stdout != "/usr/local/bin/gcc"
+
+- fail:
+    msg: "[fail] {{ which_gpp.stdout }} was not equal to /usr/local/bin/g++"
+  when:
+    - not ansible_check_mode
+    - which_gpp.stdout != "/usr/local/bin/g++"

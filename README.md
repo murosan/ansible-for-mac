@@ -27,5 +27,5 @@
   # fisherman
   curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisherman
   # plugins
-  fisher install balias	extract	getopts	spin	z
+  fisher install balias extract getopts spin z
   ```

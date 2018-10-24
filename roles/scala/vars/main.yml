@@ -1,0 +1,4 @@
+version: 11.0.1
+tar_file: "openjdk-{{ version }}_osx-x64_bin.tar.gz"
+jdk_dir: "jdk-{{ version }}.jdk"
+download_url: "https://download.java.net/java/GA/jdk11/13/GPL/{{ tar_file }}"

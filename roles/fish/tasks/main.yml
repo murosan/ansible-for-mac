@@ -1,0 +1,25 @@
+- name: install fish
+  homebrew:
+    name: sbt
+    state: latest
+
+- name: set as default shell
+  shell: chsh -s /usr/local/bin/fish
+
+- name: download fisherman
+  shell: >
+    curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisherman
+    warn=false
+
+- name: install plugin
+  shell: fisher install balias extract getopts spin z
+
+- name: setup prompt
+  template:
+    src: prompt.fish
+    dest: "{{ home }}/.config/fish/functions/fish_prompt.fish"
+
+- name: setup config.fish
+  template:
+    src: config.fish
+    dest: "{{ home }}/.config/fish/config.fish"

@@ -1,6 +1,6 @@
 - name: install fish
   homebrew:
-    name: sbt
+    name: fish
     state: latest
 
 - name: set as default shell

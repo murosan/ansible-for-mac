@@ -1,0 +1,17 @@
+# Update homebrew and upgrade all packages
+- homebrew:
+    update_homebrew: yes
+    upgrade_all: yes
+
+- name: install packages
+  homebrew:
+    name: "{{ name }}"
+    state: latest
+  loop:
+    - jq
+    - direnv
+    - heroku
+    - plantuml
+    - protobuf
+    - evans # https://github.com/ktr0731/evans
+    - tree

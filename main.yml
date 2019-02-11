@@ -5,5 +5,7 @@
     - os
     - gcc
     - scala
+    - go
+    - node
   vars_files:
     - ./inventory/vars.yml

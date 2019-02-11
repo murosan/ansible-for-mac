@@ -1,0 +1,30 @@
+- name: install nodebrew
+  homebrew:
+    name: nodebrew
+    state: latest
+
+- name: check the .nodebrew directory
+  stat:
+    path: "~/.nodebrew"
+  register: nodebrew_directory
+
+- name: setup directory if not exists
+  shell: /usr/local/opt/nodebrew/bin/nodebrew setup_dirs
+  when: not nodebrew_directory.stat.exists
+
+- name: check installed binary
+  stat:
+    path: "~/.nodebrew/src/{{ node_version }}"
+  register: node_src
+
+- name: install binary
+  shell: nodebrew install-binary "{{ node_version }}"
+  when: not node_src.stat.exists
+
+- name: setup current ndoe
+  shell: nodebrew use "{{ node_version }}"
+
+- name: install yarn
+  homebrew:
+    name: yarn
+    state: latest

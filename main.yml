@@ -1,11 +1,13 @@
 - name: setup
   hosts: all
   user: "{{ user }}"
+  become: root
   roles:
     - os
     - gcc
     - scala
     - go
     - node
+    # - fish
   vars_files:
     - ./inventory/vars.yml

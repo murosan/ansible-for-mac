@@ -1,0 +1,26 @@
+- name: update homebrew and upgrade all packages
+  homebrew:
+    update_homebrew: yes
+    upgrade_all: yes
+
+- name: brew tap
+  homebrew_tap:
+    name: "{{ item }}"
+  loop:
+    - ktr0731/evans # https://github.com/ktr0731/evans
+
+- name: install packages
+  homebrew:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - git
+    - jq
+    - direnv
+    - heroku
+    - heroku-node
+    - plantuml
+    - protobuf
+    - tree
+    - the_silver_searcher
+    - evans

@@ -1,0 +1,13 @@
+- name: update homebrew and upgrade all packages
+  homebrew:
+    update_homebrew: yes
+    upgrade_all: yes
+
+- name: install development packages
+  homebrew:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - awscli
+    - packer
+    - tfenv # terraform version management

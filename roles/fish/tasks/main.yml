@@ -17,9 +17,20 @@
 - name: setup prompt
   template:
     src: prompt.fish
-    dest: "{{ home }}/.config/fish/functions/fish_prompt.fish"
+    dest: "~/.config/fish/functions/fish_prompt.fish"
+
+- name: create shells directory
+  file:
+    path: "{{ shells_dir }}"
+    state: directory
+
+- name: setup git_branch.sh
+  template:
+    src: git_branch.sh
+    dest: "{{ git_branch_path }}"
+    mode: 0755
 
 - name: setup config.fish
   template:
     src: config.fish
-    dest: "{{ home }}/.config/fish/config.fish"
+    dest: "~/.config/fish/config.fish"

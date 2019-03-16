@@ -2,4 +2,7 @@
 
 # ansible-playbook main.yml -i localhost, -c local --syntax-check
 # ansible-playbook main.yml -i localhost, -c local --check
-ansible-playbook main.yml -i localhost, -c local
+ansible-playbook main.yml \
+  -i localhost, \
+  -c local \
+  --extra-vars "user=$USER"

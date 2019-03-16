@@ -1,9 +1,19 @@
 # to find the meanings, run "defaults find ?"
 # example "defaults find KeyRepeat"
 
+- name: setup macOS defaults with root user
+  become: yes
+  shell: >
+    nvram SystemAudioVolume=" " &&
+    chflags nohidden /Volumes
+
+- name: mkdir screencapture_dir
+  file:
+    path: "{{ screencapture_dir }}"
+    state: directory
+
 - name: setup macOS defaults
   shell: >
-    sudo nvram SystemAudioVolume=" " &&
     defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false &&
     defaults write com.apple.CrashReporter DialogType -string "none" &&
     defaults write com.apple.dock launchanim -bool false &&
@@ -19,16 +29,14 @@
     defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true &&
     defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true &&
     chflags nohidden ~/Library &&
-    sudo chflags nohidden /Volumes &&
-    mkdir ~/Desktop/screencapture &&
     defaults write com.apple.screencapture location ~/Desktop/screencapture/ &&
     defaults write NSGlobalDomain InitialKeyRepeat -int 10 &&
-    defaults write NSGlobalDomain KeyRepeat -int 1
+    defaults write NSGlobalDomain KeyRepeat -int 1 &&
     defaults write NSGlobalDomain com.apple.trackpad.scaling -int 3
 
 - name: setup macOS defaults for trackpad
   shell: >
-    defaults write "{{ item }}" TrackpadThreeFingerDrag -int 1 &&
+    defaults write "{{ item }}" TrackpadThreeFingerDrag -int 1
   loop:
     - com.apple.AppleMultitouchTrackpad
     - com.apple.driver.AppleBluetoothMultitouch.trackpad

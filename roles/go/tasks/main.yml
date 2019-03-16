@@ -12,5 +12,6 @@
     - github.com/rakyll/hey
     - github.com/rakyll/gotest
     - github.com/golang/protobuf/protoc-gen-go
+    - github.com/mithrandie/csvq
   environment:
     GOPATH: "~/go"

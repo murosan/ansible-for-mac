@@ -1,7 +1,7 @@
 set fish_greeting fish shell. $PWD (date +%FT%T%z)
 
-set GOPATH $HOME/go
-set NODE_BIN $HOME/.nodebrew/current/bin
+set GOPATH ~/go
+set NODE_BIN ~/.nodebrew/current/bin
 
 set PATH $NODE_BIN $GOPATH/bin $PATH
 

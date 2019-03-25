@@ -1,6 +1,6 @@
 set fish_greeting fish shell. $PWD (date +%FT%T%z)
 
-set GOPATH ~/go
+set GOPATH "{{ go_path }}"
 set NODE_BIN ~/.nodebrew/current/bin
 
 set PATH $NODE_BIN $GOPATH/bin $PATH

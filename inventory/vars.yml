@@ -1,2 +1,2 @@
 download_dir: "~/Downloads"
-go_path: "~/go"
+go_path: "{{ home }}/go"

@@ -1,2 +1,2 @@
-shells_dir: "~/workspace/shells"
-git_branch_path: "{{ shells_dir }}/git_branch.sh"
+shells_dir: "~/bin"
+git_branch_path: "{{ shells_dir }}/br"

@@ -3,6 +3,10 @@
     name: fish
     state: latest
 
+- name: add fish to default shells
+  shell: echo '/usr/local/bin/fish' >> /etc/shells
+  become: yes
+
 - name: set as default shell
   shell: chsh -s /usr/local/bin/fish
 
@@ -12,7 +16,7 @@
     warn=false
 
 - name: install plugin
-  shell: fisher install balias extract getopts spin z
+  shell: fisher install oh-my-fish/plugin-balias oh-my-fish/plugin-extract spin z
 
 - name: setup prompt
   template:

@@ -17,8 +17,9 @@
     GOPATH: "{{ go_path }}"
 
 - name: install csvq
-  shell: go install
-  chdir: "{{ go_path }}/src/github.com/mithrandie/csvq"
+  shell: >
+    cd "{{ go_path }}/src/github.com/mithrandie/csvq" &&
+    go install
   environment:
     GOPATH: "{{ go_path }}"
     GO111MODULE: on

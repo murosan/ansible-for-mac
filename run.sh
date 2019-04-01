@@ -5,4 +5,4 @@
 ansible-playbook main.yml \
   -i localhost, \
   -c local \
-  --extra-vars "user=$USER"
+  --extra-vars "user=$USER home=$HOME"

@@ -1,2 +1,2 @@
-- import_tasks: install_jdk.yml
+# - import_tasks: install_jdk.yml
 - import_tasks: install_sbt.yml

@@ -1,3 +1,7 @@
+- name: install xcode-select
+  shell: xcode-select --install
+  ignore_errors: yes
+
 - name: install gcc
   homebrew:
     name: gcc

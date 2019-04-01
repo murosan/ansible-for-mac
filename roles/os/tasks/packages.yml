@@ -8,6 +8,7 @@
     name: "{{ item }}"
   loop:
     - ktr0731/evans # https://github.com/ktr0731/evans
+    - heroku/brew
 
 - name: install packages
   homebrew:
@@ -19,8 +20,9 @@
     - direnv
     - heroku
     - heroku-node
-    - plantuml
+    - plantuml # java must be installed
     - protobuf
     - tree
     - the_silver_searcher
     - evans
+    - bash

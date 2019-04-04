@@ -25,9 +25,6 @@
     defaults write com.apple.finder FXDefaultSearchScope -string "SCcf" &&
     defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true &&
     defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true &&
-    defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true &&
-    defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true &&
-    defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true &&
     chflags nohidden ~/Library &&
     defaults write com.apple.screencapture location ~/Desktop/screencapture/ &&
     defaults write NSGlobalDomain InitialKeyRepeat -int 15 &&

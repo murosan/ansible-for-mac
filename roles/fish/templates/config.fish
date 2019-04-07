@@ -8,6 +8,5 @@ set PATH {{ shells_dir }} $NODE_BIN $GOPATH/bin $PATH
 alias rm='rm -i'
 alias gac='git add .; git commit'
 alias datetime='date +%FT%T%z | pbcopy; date +%FT%T%z'
-alias br='{{ git_branch_path }}'
 
 eval (direnv hook fish)

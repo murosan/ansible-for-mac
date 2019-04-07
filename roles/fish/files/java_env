@@ -1,0 +1,35 @@
+#!/bin/bash
+
+machines_dir="/Library/Java/JavaVirtualMachines"
+java_list=$(ls -1 $machines_dir | grep -v current)
+
+i=0
+for j in ${java_list[@]}; do
+  echo $i: $j
+  let i++
+done
+
+read -p "select index > " index
+
+i=0
+for j in ${java_list[@]}; do
+  if [[ $i = $index ]]; then
+    machine="$j"
+  fi
+  let i++
+done
+
+if [[ $machine = "" ]]; then
+  echo "index out of range."
+  exit 1
+fi
+
+echo ""
+echo "set current to $machine"
+echo ""
+
+sudo unlink "$machines_dir/current"
+sudo ln -s "$machines_dir/$machine" "$machines_dir/current"
+
+java -version
+

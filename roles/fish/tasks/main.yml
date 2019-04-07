@@ -19,7 +19,7 @@
   shell: fisher install oh-my-fish/plugin-balias oh-my-fish/plugin-extract spin z
 
 - name: setup prompt
-  template:
+  copy:
     src: prompt.fish
     dest: "~/.config/fish/functions/fish_prompt.fish"
 
@@ -28,11 +28,14 @@
     path: "{{ shells_dir }}"
     state: directory
 
-- name: setup git_branch.sh
-  template:
-    src: git_branch.sh
-    dest: "{{ git_branch_path }}"
+- name: setup useful scripts
+  copy:
+    src: "{{ item }}"
+    dest: "{{ shells_dir }}/{{ item }}"
     mode: 0755
+  loop:
+    - br
+    - java_env
 
 - name: setup config.fish
   template:

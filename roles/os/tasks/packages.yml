@@ -26,3 +26,5 @@
     - the_silver_searcher
     - evans
     - bash
+    - coreutils
+    - peco
